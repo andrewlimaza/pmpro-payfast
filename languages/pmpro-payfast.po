@@ -1,0 +1,451 @@
+# Copyright (C) 2024 Paid Memberships Pro
+# This file is distributed under the same license as the Paid Memberships Pro - PayFast Gateway plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Paid Memberships Pro - PayFast Gateway 1.6.1\n"
+"Report-Msgid-Bugs-To: info@paidmembershipspro.com\n"
+"Last-Translator: Paid Memberships Pro <info@paidmembershipspro.com>\n"
+"Language-Team: Paid Memberships Pro <info@paidmembershipspro.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-03T08:56:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: pmpro-payfast\n"
+
+#. Plugin Name of the plugin
+#: pmpro-payfast.php
+msgid "Paid Memberships Pro - PayFast Gateway"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: pmpro-payfast.php
+msgid "https://www.paidmembershipspro.com/add-ons/payfast-payment-gateway/"
+msgstr ""
+
+#. Description of the plugin
+#: pmpro-payfast.php
+msgid "Adds PayFast as a gateway option for Paid Memberships Pro."
+msgstr ""
+
+#. Author of the plugin
+#: pmpro-payfast.php
+msgid "Paid Memberships Pro"
+msgstr ""
+
+#. Author URI of the plugin
+#: pmpro-payfast.php
+msgid "https://www.paidmembershipspro.com"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:73
+#: classes/class.pmprogateway_payfast.php:59
+#: classes/class.pmprogateway_payfast.php:62
+msgid "PayFast"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:126
+#: classes/class.pmprogateway_payfast.php:143
+#: classes/class.pmprogateway_payfast.php:129
+#: classes/class.pmprogateway_payfast.php:132
+msgid "PayFast Merchant ID"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:138
+#: classes/class.pmprogateway_payfast.php:155
+#: classes/class.pmprogateway_payfast.php:141
+#: classes/class.pmprogateway_payfast.php:144
+msgid "PayFast Merchant Key"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:150
+#: classes/class.pmprogateway_payfast.php:167
+#: classes/class.pmprogateway_payfast.php:153
+#: classes/class.pmprogateway_payfast.php:156
+msgid "PayFast Debug Mode"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:158
+#: classes/class.pmprogateway_payfast.php:175
+#: classes/class.pmprogateway_payfast.php:161
+#: classes/class.pmprogateway_payfast.php:164
+msgid "On"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:164
+#: classes/class.pmprogateway_payfast.php:181
+#: classes/class.pmprogateway_payfast.php:167
+#: classes/class.pmprogateway_payfast.php:170
+msgid "Off"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:175
+#: classes/class.pmprogateway_payfast.php:192
+#: classes/class.pmprogateway_payfast.php:178
+#: classes/class.pmprogateway_payfast.php:181
+msgid "PayFast PassPhrase"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:178
+#: classes/class.pmprogateway_payfast.php:195
+#: classes/class.pmprogateway_payfast.php:181
+#: classes/class.pmprogateway_payfast.php:184
+msgid "A passphrase is now required for all transactions."
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:231
+#: classes/class.pmprogateway_payfast.php:248
+#: classes/class.pmprogateway_payfast.php:234
+#: classes/class.pmprogateway_payfast.php:237
+msgid "If you need to update your billing details, please login to your %s account to update these credentials. Selecting the update button below will automatically redirect you to Payfast."
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:272
+#: classes/class.pmprogateway_payfast.php:290
+#: classes/class.pmprogateway_payfast.php:276
+#: classes/class.pmprogateway_payfast.php:279
+msgid "NOTE:"
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:272
+#: classes/class.pmprogateway_payfast.php:290
+#: classes/class.pmprogateway_payfast.php:276
+#: classes/class.pmprogateway_payfast.php:279
+msgid "if changing a subscription it may take a minute or two to reflect. Please also login to your PayFast account to ensure the old subscription is cancelled."
+msgstr ""
+
+#: pmpro-payfast.php:50
+msgid "Thank you for activating. <a href=\"%s\">Visit the payment settings page</a> to configure the Payfast Gateway."
+msgstr ""
+
+#: pmpro-payfast.php:83
+msgid "PayFast currently doesn't support custom trials; Daily or weekly recurring pricing. Please can you update your membership levels that may have these set."
+msgstr ""
+
+#: pmpro-payfast.php:210
+msgid "Configure Payfast"
+msgstr ""
+
+#: pmpro-payfast.php:226
+msgid "View Documentation"
+msgstr ""
+
+#: pmpro-payfast.php:226
+msgid "Docs"
+msgstr ""
+
+#: pmpro-payfast.php:227
+msgid "Visit Customer Support Forum"
+msgstr ""
+
+#: pmpro-payfast.php:227
+msgid "Support"
+msgstr ""
+
+#: services/payfast_itn_handler.php:14
+msgid "Paid Memberships Pro and the PMPro PayFast Add On must be activated for the PMPro PayFast ITN handler to function."
+msgstr ""
+
+#: services/payfast_itn_handler.php:34
+msgid "Amount mismatch"
+msgstr ""
+
+#: services/payfast_itn_handler.php:35
+msgid "Bad access of page"
+msgstr ""
+
+#: services/payfast_itn_handler.php:36
+msgid "Bad source IP address"
+msgstr ""
+
+#: services/payfast_itn_handler.php:37
+msgid "Failed to connect to PayFast"
+msgstr ""
+
+#: services/payfast_itn_handler.php:38
+msgid "Security signature mismatch"
+msgstr ""
+
+#: services/payfast_itn_handler.php:39
+msgid "Merchant ID mismatch"
+msgstr ""
+
+#: services/payfast_itn_handler.php:40
+msgid "No saved session found for ITN transaction"
+msgstr ""
+
+#: services/payfast_itn_handler.php:41
+msgid "Order ID not present in URL"
+msgstr ""
+
+#: services/payfast_itn_handler.php:42
+msgid "Order ID mismatch"
+msgstr ""
+
+#: services/payfast_itn_handler.php:43
+msgid "This order ID is invalid"
+msgstr ""
+
+#: services/payfast_itn_handler.php:44
+msgid "Order Number mismatch"
+msgstr ""
+
+#: services/payfast_itn_handler.php:45
+msgid "This order has already been processed"
+msgstr ""
+
+#: services/payfast_itn_handler.php:46
+msgid "PDT query failed"
+msgstr ""
+
+#: services/payfast_itn_handler.php:47
+msgid "PDT token not present in URL"
+msgstr ""
+
+#: services/payfast_itn_handler.php:48
+msgid "Session ID mismatch"
+msgstr ""
+
+#: services/payfast_itn_handler.php:49
+msgid "Unkown error occurred"
+msgstr ""
+
+#: services/payfast_itn_handler.php:51
+msgid "Payment was successful"
+msgstr ""
+
+#: services/payfast_itn_handler.php:52
+msgid "Payment has failed"
+msgstr ""
+
+#: services/payfast_itn_handler.php:55
+msgid "The payment is pending. Please note, you will receive another Instant"
+msgstr ""
+
+#: services/payfast_itn_handler.php:56
+msgid " Transaction Notification when the payment status changes to"
+msgstr ""
+
+#: services/payfast_itn_handler.php:57
+msgid " \"Completed\", or \"Failed\""
+msgstr ""
+
+#: services/payfast_itn_handler.php:72
+msgid "PayFast ITN call received"
+msgstr ""
+
+#: services/payfast_itn_handler.php:82
+msgid "Get posted data"
+msgstr ""
+
+#: services/payfast_itn_handler.php:89
+#: services/payfast_itn_handler.php:85
+msgid "PayFast Data: "
+msgstr ""
+
+#: services/payfast_itn_handler.php:98
+#: services/payfast_itn_handler.php:101
+msgid "Verify security signature"
+msgstr ""
+
+#: services/payfast_itn_handler.php:109
+#: services/payfast_itn_handler.php:112
+msgid "Verify source IP"
+msgstr ""
+
+#: services/payfast_itn_handler.php:117
+#: services/payfast_itn_handler.php:120
+msgid "Verify data received"
+msgstr ""
+
+#: services/payfast_itn_handler.php:130
+#: services/payfast_itn_handler.php:133
+msgid "Amount Returned: "
+msgstr ""
+
+#: services/payfast_itn_handler.php:159
+#: services/payfast_itn_handler.php:256
+#: services/payfast_itn_handler.php:166
+#: services/payfast_itn_handler.php:264
+msgid "ERROR: Couldn't change level for order ("
+msgstr ""
+
+#: services/payfast_itn_handler.php:159
+#: services/payfast_itn_handler.php:170
+#: services/payfast_itn_handler.php:187
+#: services/payfast_itn_handler.php:166
+#: services/payfast_itn_handler.php:177
+#: services/payfast_itn_handler.php:195
+msgid ")."
+msgstr ""
+
+#: services/payfast_itn_handler.php:170
+#: services/payfast_itn_handler.php:177
+msgid "ERROR: Couldn't find last order for this recurring payment ("
+msgstr ""
+
+#: services/payfast_itn_handler.php:187
+#: services/payfast_itn_handler.php:195
+msgid "ERROR: Couldn't find this order to cancel (subscription_transaction_id="
+msgstr ""
+
+#: services/payfast_itn_handler.php:193
+#: services/payfast_itn_handler.php:201
+msgid "ERROR: Could not cancel membership. No user attached to order #"
+msgstr ""
+
+#: services/payfast_itn_handler.php:193
+#: services/payfast_itn_handler.php:201
+msgid " with subscription transaction id = "
+msgstr ""
+
+#: services/payfast_itn_handler.php:193
+#: services/payfast_itn_handler.php:226
+#: services/payfast_itn_handler.php:201
+#: services/payfast_itn_handler.php:234
+msgid "."
+msgstr ""
+
+#: services/payfast_itn_handler.php:197
+#: services/payfast_itn_handler.php:205
+msgid "We've already processed this cancellation. Probably originated from WP/PMPro. (Order #"
+msgstr ""
+
+#: services/payfast_itn_handler.php:197
+#: services/payfast_itn_handler.php:199
+#: services/payfast_itn_handler.php:205
+#: services/payfast_itn_handler.php:207
+msgid ", Subscription Transaction ID #"
+msgstr ""
+
+#: services/payfast_itn_handler.php:197
+#: services/payfast_itn_handler.php:199
+#: services/payfast_itn_handler.php:205
+#: services/payfast_itn_handler.php:207
+msgid ")"
+msgstr ""
+
+#: services/payfast_itn_handler.php:199
+#: services/payfast_itn_handler.php:207
+msgid "This user has a different level than the one associated with this order. Their membership was probably changed by an admin or through an upgrade/downgrade. (Order #"
+msgstr ""
+
+#: services/payfast_itn_handler.php:226
+#: services/payfast_itn_handler.php:234
+msgid "Cancelled membership for user with id = "
+msgstr ""
+
+#: services/payfast_itn_handler.php:226
+#: services/payfast_itn_handler.php:234
+msgid ". Subscription transaction id = "
+msgstr ""
+
+#: services/payfast_itn_handler.php:239
+#: services/payfast_itn_handler.php:247
+msgid "Check status and update order"
+msgstr ""
+
+#: services/payfast_itn_handler.php:244
+#: services/payfast_itn_handler.php:252
+msgid "check token"
+msgstr ""
+
+#: services/payfast_itn_handler.php:260
+#: services/payfast_itn_handler.php:263
+#: services/payfast_itn_handler.php:268
+#: services/payfast_itn_handler.php:271
+msgid "ERROR: ITN from PayFast for order ("
+msgstr ""
+
+#: services/payfast_itn_handler.php:260
+#: services/payfast_itn_handler.php:268
+msgid ") Failed."
+msgstr ""
+
+#: services/payfast_itn_handler.php:266
+#: services/payfast_itn_handler.php:274
+msgid "ERROR: Unknown error for order ("
+msgstr ""
+
+#: services/payfast_itn_handler.php:273
+#: services/payfast_itn_handler.php:142
+msgid "Error occurred: "
+msgstr ""
+
+#: services/payfast_itn_handler.php:293
+#: services/payfast_itn_handler.php:297
+msgid "Logged On: "
+msgstr ""
+
+#: services/payfast_itn_handler.php:506
+#: services/payfast_itn_handler.php:424
+#: services/payfast_itn_handler.php:418
+msgid "New order ("
+msgstr ""
+
+#: services/payfast_itn_handler.php:506
+#: services/payfast_itn_handler.php:424
+#: services/payfast_itn_handler.php:418
+msgid ") created."
+msgstr ""
+
+#: services/payfast_itn_handler.php:509
+#: services/payfast_itn_handler.php:427
+#: services/payfast_itn_handler.php:420
+msgid "Duplicate Transaction ID: "
+msgstr ""
+
+#: services/payfast_itn_handler.php:570
+#: services/payfast_itn_handler.php:488
+#: services/payfast_itn_handler.php:483
+msgid "Signature Sent: "
+msgstr ""
+
+#: services/payfast_itn_handler.php:571
+#: services/payfast_itn_handler.php:489
+#: services/payfast_itn_handler.php:484
+msgid "Signature = "
+msgstr ""
+
+#: services/payfast_itn_handler.php:571
+#: services/payfast_itn_handler.php:489
+#: services/payfast_itn_handler.php:484
+msgid "valid"
+msgstr ""
+
+#: services/payfast_itn_handler.php:571
+#: services/payfast_itn_handler.php:489
+#: services/payfast_itn_handler.php:484
+msgid "invalid"
+msgstr ""
+
+#: services/payfast_itn_handler.php:584
+#: services/payfast_itn_handler.php:502
+#: services/payfast_itn_handler.php:497
+msgid "Host = "
+msgstr ""
+
+#: services/payfast_itn_handler.php:585
+#: services/payfast_itn_handler.php:503
+#: services/payfast_itn_handler.php:498
+msgid "Params = "
+msgstr ""
+
+#: pmpro-payfast.php:83
+msgid "PayFast currently doesn't support custom trials. Please can you update your membership levels that may have these set."
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:289
+#: classes/class.pmprogateway_payfast.php:275
+#: classes/class.pmprogateway_payfast.php:278
+msgid "PayFast Checkout description text. Please note that if changing a subscription it may take a minute or two to reflect. Please also login to your PayFast account to ensure the old subscription is cancelled."
+msgstr ""
+
+#: classes/class.pmprogateway_payfast.php:702
+#: classes/class.pmprogateway_payfast.php:646
+#: classes/class.pmprogateway_payfast.php:652
+#: classes/class.pmprogateway_payfast.php:742
+#: classes/class.pmprogateway_payfast.php:741
+msgid "There was an error connecting to Payfast. Please check your connectivity or API details and try again later."
+msgstr ""

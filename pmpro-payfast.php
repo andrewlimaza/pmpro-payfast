@@ -3,7 +3,7 @@
 Plugin Name: Paid Memberships Pro - PayFast Gateway
 Plugin URI: https://www.paidmembershipspro.com/add-ons/payfast-payment-gateway/
 Description: Adds PayFast as a gateway option for Paid Memberships Pro.
-Version: 0.9
+Version: 1.6.1
 Author: Paid Memberships Pro
 Author URI: https://www.paidmembershipspro.com
 Text Domain: pmpro-payfast
@@ -63,18 +63,24 @@ add_action( 'admin_notices', 'pmpro_payfast_admin_notice' );
  function pmpro_payfast_check_level_compat(){
 
 	// Only show the notice on either the levels page or payment settings page.
-	if ( isset( $_REQUEST['page'] ) &&  ( $_REQUEST['page'] != 'pmpro-membershiplevels' && $_REQUEST['page'] != 'pmpro-paymentsettings' ) ) {
+	if ( ! isset( $_REQUEST['page'] ) || $_REQUEST['page'] != 'pmpro-membershiplevels' ) {
 		return;
 	}
 
 	$level = isset( $_REQUEST['edit'] ) ? intval( $_REQUEST['edit'] ) : '';
+
+	// Don't check if level is not set.
+	if ( empty( $level ) ) {
+		return;
+	}
+
 	$compatible = pmpro_payfast_check_billing_compat( $level );
 	
 	if ( ! $compatible ){
 		?>
 		<div class="notice notice-error fade">		
 			<p>
-				<?php _e( "PayFast currently doesn't support custom trials; Daily or weekly recurring pricing. Please can you update your membership levels that may have these set.", 'pmpro-payfast' );?>
+				<?php esc_html_e( "PayFast currently doesn't support custom trials. Please can you update your membership levels that may have these set.", 'pmpro-payfast' );?>
 			</p>
 		</div>
 		<?php
@@ -91,8 +97,8 @@ add_action( 'admin_notices', 'pmpro_payfast_check_level_compat' );
 function pmpro_payfast_pmpro_is_ready( $pmpro_is_ready ) {
 	global $pmpro_gateway_ready, $pmpro_pages_ready;
 
-	if ( empty($pmpro_gateway_ready) && 'payfast' === pmpro_getOption( 'gateway' ) ) {
-		if( pmpro_getOption( 'payfast_merchant_id' ) && pmpro_getOption( 'payfast_merchant_key' ) && pmpro_getOption( 'payfast_passphrase' ) ) {
+	if ( empty($pmpro_gateway_ready) && 'payfast' === get_option( 'pmpro_gateway' ) ) {
+		if( get_option( 'pmpro_payfast_merchant_id' ) && get_option( 'pmpro_payfast_merchant_key' ) && get_option( 'pmpro_payfast_passphrase' ) ) {
 			$pmpro_gateway_ready = true;
 		}
 	}
@@ -107,7 +113,11 @@ add_filter( 'pmpro_is_ready', 'pmpro_payfast_pmpro_is_ready' );
  */
  function pmpro_payfast_check_billing_compat( $level = NULL ){
 
-	$gateway = pmpro_getOption("gateway");
+ 	if( !function_exists( 'pmpro_init' ) ){
+ 		return;
+ 	}
+ 	
+	$gateway = get_option("pmpro_gateway");
 
 	if( $gateway == "payfast" ){
 
@@ -129,11 +139,11 @@ add_filter( 'pmpro_is_ready', 'pmpro_payfast_pmpro_is_ready' );
 
 		} else {
 
-			if( is_numeric( $level ) ){
+			if( is_numeric( $level ) && $level > 0 ){
 
 				$level = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->pmpro_membership_levels WHERE id = %d LIMIT 1" , $level ) );
 				
-				if( pmpro_isLevelTrial( $level ) || ( $level->cycle_period == "Day" || $level->cycle_period == "Week") ){
+				if( pmpro_isLevelTrial( $level ) ){
 					return false;
 				}
 
@@ -151,19 +161,20 @@ add_filter( 'pmpro_is_ready', 'pmpro_payfast_pmpro_is_ready' );
  * @since 0.9
  */
 function pmpro_payfast_custom_trial_js_check() {
-	$gateway = pmpro_getOption( 'gateway' );
+	$gateway = get_option( 'pmpro_gateway' );
 
 	if ( $gateway !== 'payfast' ) {
 		return;
 	}
-	?>
+
+	$custom_trial_warning = __( sprintf( 'PayFast does not support custom trials. Please use the %s instead.', "<a href='https://www.paidmembershipspro.com/add-ons/subscription-delays' target='_blank'>Subscription Delay Add On</a>" ), 'pmpro-payfast' ); ?>
 		<script>
 			jQuery(document).ready(function(){
-				var message = "<?php _e( 'PayFast does not support custom trials at this point in time.', 'pmpro-payfast' ); ?>";
-				jQuery( '<tr id="payfast-trial-warning" style="display:none;"><th></th><td><em><strong>' + message + '</strong></em></td></tr>' ).insertAfter( '.trial_info' );
+				var message = "<?php echo $custom_trial_warning; ?>";
+				jQuery( '<tr id="payfast-trial-warning" style="display:none"><th></th><td><em><strong>' + message + '</strong></em></td></tr>' ).insertAfter( '.trial_info' );
 
 				// Show for existing levels.
-				if ( jQuery('#custom-trial').prop('checked', true) ) {
+				if ( jQuery('#custom-trial').is(':checked') ) {
 					jQuery( '#payfast-trial-warning' ).show();
 
 				}
@@ -193,11 +204,12 @@ add_action( 'pmpro_membership_level_after_other_settings', 'pmpro_payfast_custom
  * @param array $links Array of links to be shown in plugin action links.
  */
 function pmpro_payfast_plugin_action_links( $links ) {
+	$new_links = array();
+
 	if ( current_user_can( 'manage_options' ) ) {
-		$new_links = array(
-			'<a href="' . get_admin_url( null, 'admin.php?page=pmpro-paymentsettings' ) . '">' . __( 'Configure Payfast', 'pmpro-payfast' ) . '</a>',
-		);
+		$new_links[] = '<a href="' . get_admin_url( null, 'admin.php?page=pmpro-paymentsettings' ) . '">' . __( 'Configure Payfast', 'pmpro-payfast' ) . '</a>';
 	}
+
 	return array_merge( $new_links, $links );
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'pmpro_payfast_plugin_action_links' );
