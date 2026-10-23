@@ -302,14 +302,14 @@ function pmpro_payfast_itnlog( $s ) {
 }
 
 /*
-	Output ipnlog and exit;
+	Write ipnlog (if debugging) and exit;
 */
 function pmpro_payfast_ipnExit() {
 	global $logstr;
 	// for log
 	if ( $logstr ) {
 		$logstr = __( 'Logged On: ', 'pmpro-payfast' ) . date( 'm/d/Y H:i:s' ) . "\n" . $logstr . "\n-------------\n";
-		echo esc_html( $logstr );
+		// Don't echo the log in the response. Anyone can call this endpoint, and the log contains values that shouldn't be public.
 
 		//Log to file or email, 
 		if ( get_option( 'pmpro_payfast_debug' ) || ( defined( 'PMPROPF_DEBUG' ) && PMPROPF_DEBUG === 'log' ) ) {
@@ -493,8 +493,8 @@ function pmpro_pfValidSignature( $pfData = null, &$pfParamString = null, $passPh
 	}
 	
 	$signature = md5( $tempParamString );
-	$result = ( $pfData['signature'] == $signature );
-	pmpro_payfast_itnlog( __( 'Signature Sent: ', 'pmpro-payfast' ) . $signature );
+	// Never log the computed signature, it's keyed with the passphrase.
+	$result = isset( $pfData['signature'] ) && hash_equals( $signature, (string) $pfData['signature'] );
 	pmpro_payfast_itnlog( __( 'Signature = ', 'pmpro-payfast' ) . ( $result ? __( 'valid', 'pmpro-payfast' ) : __( 'invalid', 'pmpro-payfast' ) ) );
 	return( $result );
 }
